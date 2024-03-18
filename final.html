@@ -1,0 +1,105 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Scientific Calculator</title>
+  <link rel="stylesheet" href="styles.css">
+  <style>
+    body {
+      font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      height: 100vh;
+      margin: 0;
+      overflow: hidden; /* To prevent scrolling */
+      position: relative; /* To position the video and calculator */
+    }
+
+    #background-video {
+      position: absolute;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      object-fit: cover; /* Cover the entire background */
+      z-index: -1;
+    }
+
+    .calculator {
+      background-color: rgba(0, 0, 0, 0.5); /* Add a semi-transparent background to make text readable */
+      border-radius: 10px;
+      padding: 30px;
+      box-shadow: 0 0 20px rgba(0, 0, 0, 0.2);
+      z-index: 1; /* Ensure calculator is above the video */
+    }
+    
+    /* Your existing CSS code here */
+
+    /* New CSS for responsiveness */
+    @media only screen and (max-width: 600px) {
+      .calculator {
+        padding: 15px; /* Adjust padding for smaller screens */
+      }
+      input[type="text"] {
+        font-size: 18px; /* Adjust font size for smaller screens */
+      }
+      .buttons {
+        grid-template-columns: repeat(3, 1fr); /* Adjust grid for smaller screens */
+      }
+    }
+  
+  </style>
+</head>
+<body>
+   
+    
+  <video autoplay muted loop id="background-video">
+    <source src="f7b7f27c09e342472c3beabcfd204ce0.mp4" type="video/mp4">
+    Your browser does not support HTML5 video.
+  </video>
+  <div class="calculator">
+    <input type="text" id="input" readonly>
+    <div class="buttons">
+      <button onclick="clearInput()">C</button>
+      <button onclick="appendToInput('/')">/</button>
+      <button onclick="appendToInput('*')">×</button>
+      <button onclick="appendToInput('Math.pow(')">pow</button>
+      <button onclick="backspace()">←</button>
+      <button onclick="appendToInput('Math.sin(')">sin</button>
+      <button onclick="appendToInput('Math.cos(')">cos</button>
+      <button onclick="appendToInput('Math.tan(')">tan</button>
+      <button onclick="appendToInput('Math.log(')">log</button>
+      <button onclick="appendToInput('Math.exp(')">exp</button>
+      <button onclick="appendToInput('Math.sqrt(')">sqrt</button>
+      <button onclick="appendToInput('Math.abs(')">abs</button>
+      <button onclick="appendToInput('Math.asin(')">arcsin</button>
+      <button onclick="appendToInput('Math.acos(')">arccos</button>
+      <button onclick="appendToInput('Math.atan(')">arctan</button>
+      <button onclick="appendToInput('Math.E')">e</button>
+      <button onclick="appendToInput('Math.PI')">π</button>
+      <button onclick="appendToInput('7')">7</button>
+      <button onclick="appendToInput('8')">8</button>
+      <button onclick="appendToInput('9')">9</button>
+      <button onclick="appendToInput('+')">+</button>
+      <button onclick="appendToInput('4')">4</button>
+      <button onclick="appendToInput('5')">5</button>
+      <button onclick="appendToInput('6')">6</button>
+      <button onclick="appendToInput('-')">-</button>
+      <button onclick="appendToInput('1')">1</button>
+      <button onclick="appendToInput('2')">2</button>
+      <button onclick="appendToInput('3')">3</button>
+      <button onclick="appendToInput('/')">÷</button>
+      <button onclick="appendToInput('0')">0</button>
+      <button onclick="appendToInput('.')">.</button>
+      <button onclick="calculate()">=</button>
+      <button onclick="appendToInput('(')">(</button>
+      <button onclick="appendToInput(',')">,</button>
+      <button onclick="appendToInput(')')">)</button>
+    </div>
+  </div>
+
+  <script src="script.js"></script>
+</body>
+</html>
